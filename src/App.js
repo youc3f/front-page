@@ -4,7 +4,7 @@ import './index.css';  // Make sure this is imported into your App.js
 
 function App(){
     const [code, setCode] = useState('');
-    const [result,setResult] = useState(null);
+    const [result,setResult] = useState({});
 
     const checkSyntax = async () => {
         try {
@@ -37,7 +37,7 @@ return (
       >
         Check Syntax
       </button>
-      {result && (
+      {result && result.valid !== undefined && (
         <div
           className={`mt-4 p-4 rounded ${
             result.valid ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
@@ -45,8 +45,19 @@ return (
         >
           {result.message}
         </div>
-        
+
       )}
+      { 
+      result.valid &&(
+        <div className="mt-4 p-4 rounded bg-gray-300 text-gray-900">
+          <p className="text-lg">Loc Instruction : {result.instruction} </p>
+          <p className="text-lg">Loc Commentaire : {result.comment} </p>
+          <p className="text-lg">Loc Empty Lines : {result.empty_lines} </p>
+          <p className="text-lg">Loc Physique : {result.physique} </p>
+        </div>
+      )
+
+      }
     </div>
 )
 }
