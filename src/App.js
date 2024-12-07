@@ -54,6 +54,7 @@ return (
           <p className="text-lg">Loc Commentaire : {result.comment} </p>
           <p className="text-lg">Loc Empty Lines : {result.empty_lines} </p>
           <p className="text-lg">Loc Physique : {result.physique} </p>
+          <p className="text-lg">Number of decision : {result.decision} </p>
         </div>
       )
 
